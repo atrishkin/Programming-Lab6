@@ -1,10 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 
 public class Gui {
-    Dimension frameDimention = new Dimension(800, 600);
+    private Dimension frameDimention = new Dimension(800, 600);
 
     Gui() {
         JFrame frame = new JFrame();
