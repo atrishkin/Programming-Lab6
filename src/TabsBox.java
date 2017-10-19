@@ -16,8 +16,6 @@ public class TabsBox implements ItemListener {
         tabBox.addItemListener(this);
         comboBoxPane.add(tabBox);
 
-        //TODO: tab1
-        //TODO: tab2
         tabPanel.add(MenuScene.addScene1(), MENU);
         tabPanel.add(CollectionScene.addScene2(), COLLECTION);
 
