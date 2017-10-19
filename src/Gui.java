@@ -1,15 +1,19 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
-public class Interface {
+public class Gui {
     Dimension frameDimention = new Dimension(800, 600);
-    Interface(){
+
+    Gui() {
         JFrame frame = new JFrame();
-        frame.setVisible(true);
         frame.setResizable(false);
         frame.setSize(frameDimention);
         frame.setTitle("Склад варенья");
         frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        //frame.setLayout(new CardLayout());
+        TabsBox tabsBox = new TabsBox();
+        tabsBox.addTabs(frame.getContentPane());
+        frame.setVisible(true);
     }
 }
