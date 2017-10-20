@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class TabsBox implements ItemListener {
+public class TabsBox {
     private final static String MENU = "Меню";
     private final static String COLLECTION = "Список варений";
     private JPanel tabPanel = new JPanel(new CardLayout());
@@ -13,7 +13,7 @@ public class TabsBox implements ItemListener {
         String tabs[] = {MENU, COLLECTION};
         JComboBox tabBox = new JComboBox(tabs);
         tabBox.setEditable(false);
-        tabBox.addItemListener(this);
+        tabBox.addItemListener(new Listener());
         comboBoxPane.add(tabBox);
 
         tabPanel.add(MenuScene.addScene1(), MENU);
@@ -22,8 +22,11 @@ public class TabsBox implements ItemListener {
         pane.add(comboBoxPane, BorderLayout.NORTH);
         pane.add(tabPanel, BorderLayout.CENTER);
     }
-    public void itemStateChanged(ItemEvent event){
-        CardLayout cardLayout = (CardLayout)(tabPanel.getLayout());
-        cardLayout.show(tabPanel, (String) event.getItem());
+
+    class Listener implements ItemListener {
+        public void itemStateChanged(ItemEvent event){
+            CardLayout cardLayout = (CardLayout)(tabPanel.getLayout());
+            cardLayout.show(tabPanel, (String) event.getItem());
+        }
     }
 }
