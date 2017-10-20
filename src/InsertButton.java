@@ -1,8 +1,10 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class InsertButton extends JButton{
+
     JButton insertButton(String name){
         JButton insertButton = new JButton(name);
         insertButton.addActionListener(new Listener());
@@ -12,7 +14,9 @@ public class InsertButton extends JButton{
         public void actionPerformed(ActionEvent event){
             Storage storage = CollectionScene.getStorage();
             //
-            storage.addJam(3, new Jam("fff", 2, 1,1));
+            //TODO: Добавление на элемент ниже, ограничение с 1 до size
+            new NewJamDialog();
+
             //
             CollectionScene.setStorage(storage);
             CollectionScene.updateTable();
