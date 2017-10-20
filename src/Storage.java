@@ -1,9 +1,11 @@
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class Storage {
     private int max = -1;
     private ArrayList<Jam> jamStorage = new ArrayList<>();
+    private static String[] colNames = {"Номер","Название","Литраж","Год","Приоритет"};
     Storage(){
         jamStorage = new ArrayList<>();
     }
@@ -29,7 +31,7 @@ public class Storage {
     ArrayList<Jam> getJam(){
         return jamStorage;
     }
-    Object[][] getContent(){
+    DefaultTableModel getModel(){
         Object[][] content = new Object[jamStorage.size()+1][5];
         for (int i = 0; i < jamStorage.size(); i++) {
             content[i][0] = i+1;
@@ -38,7 +40,8 @@ public class Storage {
             content[i][3] = jamStorage.get(i).getYear();
             content[i][4] = jamStorage.get(i).getPriority();
         }
-        return content;
+        DefaultTableModel model = new DefaultTableModel(content, colNames);
+        return model;
     }
     int getMax(){
         findMax();
