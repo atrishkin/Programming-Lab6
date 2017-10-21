@@ -44,10 +44,10 @@ public class CollectionScene {
     }
     private static JPanel collectionButtons(){
         JPanel collectionButtons = new JPanel();
-        collectionButtons.add(new InsertButton().insertButton("Добавить элемент"));
-        collectionButtons.add(new SortButton().sortButton("Отсортировать по приоритету"));
-        collectionButtons.add(new ClearButton().clearButton("Очистить коллекцию"));
-        collectionButtons.add(new SaveButton().SaveButton("Сохранить"));
+        collectionButtons.add(new InsertButton().insertButton());
+        collectionButtons.add(new SortButton().sortButton());
+        collectionButtons.add(new ClearButton().clearButton());
+        collectionButtons.add(new SaveButton().SaveButton());
         return collectionButtons;
     }
 

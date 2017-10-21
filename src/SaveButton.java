@@ -1,8 +1,8 @@
 import javax.swing.*;
 
 public class SaveButton{
-    JButton SaveButton(String name){
-        JButton saveButton = new JButton(name);
+    JButton SaveButton(){
+        JButton saveButton = new JButton("Сохранить");
         return saveButton;
     }
 }

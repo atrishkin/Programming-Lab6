@@ -1,8 +1,8 @@
 import javax.swing.*;
 
 public class SortButton{
-    JButton sortButton(String name){
-        JButton sortButton = new JButton(name);
+    JButton sortButton(){
+        JButton sortButton = new JButton("Отсортировать по приоритету");
         return sortButton;
     }
 }

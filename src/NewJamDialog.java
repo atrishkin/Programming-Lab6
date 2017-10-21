@@ -11,6 +11,7 @@ public class NewJamDialog extends JDialog{
     private JTextArea sizeText = new JTextArea("Литраж:");
     private JTextArea yearText = new JTextArea("Год приготовления:");
     private JTextArea priorityText = new JTextArea("Приоритет (целое число):");
+    //TODO: ограничить количество вводимых символов
     private JTextField index = new JTextField();
     private JTextField name = new JTextField();
     private JTextField size = new JTextField();
