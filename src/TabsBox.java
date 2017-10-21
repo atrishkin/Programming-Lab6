@@ -24,6 +24,7 @@ public class TabsBox {
 
 
     class Listener implements ItemListener {
+        @Override
         public void itemStateChanged(ItemEvent event){
             CardLayout cardLayout = (CardLayout)(tabPanel.getLayout());
             cardLayout.show(tabPanel, (String) event.getItem());

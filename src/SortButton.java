@@ -1,6 +1,6 @@
 import javax.swing.*;
 
-public class SortButton extends JButton{
+public class SortButton{
     JButton sortButton(String name){
         JButton sortButton = new JButton(name);
         return sortButton;
