@@ -3,7 +3,6 @@ public class Jam implements Comparable<Jam> {
     private double size; //литраж банки в литрах
     private int year; //год производства
     private int priority; //чем выше число, тем вкуснее варенье для Карлсона
-
     Jam() {
     }
     Jam(String n, double s, int y, int p) {
@@ -13,31 +12,35 @@ public class Jam implements Comparable<Jam> {
         priority = p;
     }
     @Override
-    public int compareTo(Jam o) {
-        return (this.priority - o.priority);
+    public int compareTo(Jam j) {
+        if(Storage.getCompareCount() > 0){
+            return (j.priority - this.priority);
+        } else {
+            return (this.priority - j.priority);
+        }
     }
-    public String getName() {
+    String getName() {
         return name;
     }
-    public double getSize() {
+    double getSize() {
         return size;
     }
-    public int getYear() {
+    int getYear() {
         return year;
     }
-    public int getPriority() {
+    int getPriority() {
         return priority;
     }
-    public void setName(String name) {
+    void setName(String name) {
         this.name = name;
     }
-    public void setSize(double size) {
+    void setSize(double size) {
         this.size = size;
     }
-    public void setYear(int year) {
+    void setYear(int year) {
         this.year = year;
     }
-    public void setPriority(int priority) {
+    void setPriority(int priority) {
         this.priority = priority;
     }
 }

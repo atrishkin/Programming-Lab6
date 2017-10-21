@@ -3,20 +3,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Storage {
-    private int max = -1;
     private ArrayList<Jam> jamStorage = new ArrayList<>();
     private static String[] colNames = {"Номер","Название","Литраж","Год","Приоритет"};
+    private static int compareCount = 1;
     Storage(){
         jamStorage = new ArrayList<>();
     }
+
+    public static int getCompareCount() {
+        return compareCount;
+    }
     void sortStorage(){
         Collections.sort(jamStorage);
-    }
-    private void findMax() {
-        for (int i = 0; i < jamStorage.size(); i++) {
-            if(jamStorage.get(i).getPriority() > max)
-                max = jamStorage.get(i).getPriority();
-        }
+        if(compareCount > 0) compareCount -= 2; else compareCount += 2;
     }
     void addJam(int index, Jam j){
         jamStorage.add(index, j);
@@ -25,7 +24,6 @@ public class Storage {
         jamStorage.add(j);
     }
     void clearStorage(){
-        max = -1;
         jamStorage = new ArrayList<>();
     }
     ArrayList<Jam> getJam(){
@@ -43,7 +41,4 @@ public class Storage {
         DefaultTableModel model = new DefaultTableModel(content, colNames);
         return model;
     }
-    int getMax(){
-        findMax();
-        return max;}
 }
