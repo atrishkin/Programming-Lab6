@@ -6,11 +6,10 @@ import java.awt.*;
 public class CollectionScene {
     private static JPanel Scene2 = new JPanel(new GridBagLayout());
     private static Storage storage = new Storage();
-    private static JScrollPane scrollTable = new JScrollPane();
     private static JTable collectionTable = new JTable();
     private static DefaultTableModel model = new DefaultTableModel();
 
-    public static JPanel addScene2(){
+    static JPanel addScene2(){
         //TODO: запись из файла, может в сцене 1
         //Probe content!!!
         for (int i = 0; i < 7; i++) {
@@ -20,16 +19,15 @@ public class CollectionScene {
             storage.addJam(new Jam("Морожка",1,2015,1));
         }
         //
-        scrollTable = new JScrollPane(getCollectionTable());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridy = 1;
-        Scene2.add(scrollTable, c);
+        Scene2.add(new JScrollPane(getCollectionTable()), c);
         c.gridy = 2;
         Scene2.add(collectionButtons(), c);
         return Scene2;
     }
-    public static void updateTable(){
+    static void updateTable(){
             DefaultTableModel tableModel = (DefaultTableModel) collectionTable.getModel();
             tableModel.setRowCount(0);
             tableModel = storage.getModel();
@@ -53,10 +51,10 @@ public class CollectionScene {
         return collectionButtons;
     }
 
-    public static Storage getStorage() {
+    static Storage getStorage() {
         return storage;
     }
-    public static void setStorage(Storage storage) {
+    static void setStorage(Storage storage) {
         CollectionScene.storage = storage;
     }
 }

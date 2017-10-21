@@ -6,14 +6,12 @@ public class Jam implements Comparable<Jam> {
 
     Jam() {
     }
-
     Jam(String n, double s, int y, int p) {
         name = n;
         size = s;
         year = y;
         priority = p;
     }
-
     @Override
     public int compareTo(Jam o) {
         return (this.priority - o.priority);
@@ -29,5 +27,17 @@ public class Jam implements Comparable<Jam> {
     }
     public int getPriority() {
         return priority;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setSize(double size) {
+        this.size = size;
+    }
+    public void setYear(int year) {
+        this.year = year;
+    }
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 }

@@ -12,11 +12,7 @@ public class InsertButton{
         @Override
         public void actionPerformed(ActionEvent event){
             Storage storage = CollectionScene.getStorage();
-            //
-            //TODO: Добавление на элемент ниже, ограничение с 1 до size
             new NewJamDialog();
-
-            //
             CollectionScene.setStorage(storage);
             CollectionScene.updateTable();
         }
