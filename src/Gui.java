@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Gui {
-    private Dimension frameDimention = new Dimension(800, 500);
+    private Dimension frameDimention = new Dimension(900, 500);
 
     Gui() {
         JFrame frame = new JFrame();

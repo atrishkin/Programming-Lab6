@@ -3,6 +3,9 @@ import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class CollectionScene {
     private static JPanel Scene2 = new JPanel(new GridBagLayout());
     private static Storage storage = new Storage();
@@ -11,14 +14,6 @@ public class CollectionScene {
 
     static JPanel addScene2(){
         //TODO: запись из файла, может в сцене 1
-        //Probe content!!!
-        for (int i = 0; i < 7; i++) {
-            storage.addJam(new Jam("Малина",2.5,2014,2));
-            storage.addJam(new Jam("Морошка",1,2016,1));
-            storage.addJam(new Jam("Черника",3,2014,2));
-            storage.addJam(new Jam("Морожка",1,2015,1));
-        }
-        //
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridy = 1;
@@ -45,12 +40,29 @@ public class CollectionScene {
     private static JPanel collectionButtons(){
         JPanel collectionButtons = new JPanel();
         collectionButtons.add(new InsertButton().insertButton());
+        collectionButtons.add(generateButton());
         collectionButtons.add(new SortButton().sortButton());
         collectionButtons.add(new ClearButton().clearButton());
         collectionButtons.add(new SaveButton().SaveButton());
         return collectionButtons;
     }
-
+    private static JButton generateButton(){
+        class genListener implements ActionListener {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                for (int i = 0; i < 7; i++) {
+                    storage.addJam(new Jam("Малина",2.5,2014,2));
+                    storage.addJam(new Jam("Морошка",1,2016,1));
+                    storage.addJam(new Jam("Черника",3,2014,2));
+                    storage.addJam(new Jam("Морожка",1,2015,1));
+                }
+                CollectionScene.updateTable();
+            }
+        }
+        JButton gen = new JButton("Сгенерировать");
+        gen.addActionListener(new genListener());
+        return gen;
+    }
     static Storage getStorage() {
         return storage;
     }
