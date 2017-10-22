@@ -6,21 +6,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class CollectionScene {
+public class CollectionScene extends JPanel {
     private static JPanel Scene2 = new JPanel(new GridBagLayout());
     private static Storage storage = new Storage();
     private static JTable collectionTable = new JTable();
     private static DefaultTableModel model = new DefaultTableModel();
 
-    static JPanel addScene2(){
+    CollectionScene(){
         //TODO: запись из файла, может в сцене 1
+        setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridy = 1;
-        Scene2.add(new JScrollPane(getCollectionTable()), c);
+        add(new JScrollPane(getCollectionTable()), c);
         c.gridy = 2;
-        Scene2.add(collectionButtons(), c);
-        return Scene2;
+        add(collectionButtons(), c);
     }
     static void updateTable(){
             DefaultTableModel tableModel = (DefaultTableModel) collectionTable.getModel();
@@ -43,7 +43,7 @@ public class CollectionScene {
         collectionButtons.add(generateButton());
         collectionButtons.add(new SortButton().sortButton());
         collectionButtons.add(new ClearButton().clearButton());
-        collectionButtons.add(new SaveButton().SaveButton());
+        collectionButtons.add(new SaveButton().saveButton());
         return collectionButtons;
     }
     private static JButton generateButton(){

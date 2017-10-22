@@ -1,17 +1,18 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Gui {
+public class Gui extends JFrame{
     private Dimension frameDimention = new Dimension(900, 500);
 
     Gui() {
-        JFrame frame = new JFrame();
-        frame.setResizable(false);
-        frame.setSize(frameDimention);
-        frame.setTitle("Склад варенья");
-        frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
-        TabsBox tabsBox = new TabsBox();
-        tabsBox.addTabs(frame.getContentPane());
-        frame.setVisible(true);
+        //TODO: В центре окна
+        setResizable(false);
+        setSize(frameDimention);
+        setTitle("Склад варенья");
+        setDefaultCloseOperation(this.EXIT_ON_CLOSE);
+//        TabsBox tabsBox = new TabsBox();
+//        tabsBox.addTabs(frame.getContentPane());
+        add(new MenuTabs());
+        setVisible(true);
     }
 }
