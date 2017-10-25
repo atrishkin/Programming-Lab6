@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-class WriteThread implements Runnable{
+class SaveThread implements Runnable{
     @Override
     public void run() {
         writeToFile(MenuTabs.getSaveFile().getName(), CollectionScene.getStorage());

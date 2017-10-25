@@ -55,9 +55,10 @@ public class MenuTabs extends JPanel{
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             fileChooser.setDialogTitle("Выберете файл сохранения");
             int result = fileChooser.showDialog(null, "Save");
-            if( result == JFileChooser.APPROVE_OPTION)
+            if( result == JFileChooser.APPROVE_OPTION) {
                 saveFile = fileChooser.getSelectedFile();
-            new WriteThread().run();
+                new SaveThread().run();
+            }
         }
     }
     private JComboBox createViewBox(){
