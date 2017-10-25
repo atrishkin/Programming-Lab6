@@ -10,8 +10,6 @@ public class Gui extends JFrame{
         setSize(frameDimention);
         setTitle("Склад варенья");
         setDefaultCloseOperation(this.EXIT_ON_CLOSE);
-//        TabsBox tabsBox = new TabsBox();
-//        tabsBox.addTabs(frame.getContentPane());
         add(new MenuTabs());
         setVisible(true);
     }
