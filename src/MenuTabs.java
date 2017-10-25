@@ -12,7 +12,12 @@ public class MenuTabs extends JPanel{
     private static JPanel tabPanel = new JPanel(new CardLayout());
     private static File loadFile = new File("");
     private static File saveFile = new File("");
-
+    public static File getLoadFile() {
+        return loadFile;
+    }
+    public static File getSaveFile() {
+        return saveFile;
+    }
     MenuTabs(){
         JMenuBar menuBar = new JMenuBar();
         menuBar.add(createSettingMenu());
@@ -37,8 +42,10 @@ public class MenuTabs extends JPanel{
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
             fileChooser.setDialogTitle("Выберете загрузочный json файл");
             int result = fileChooser.showDialog(null, "Load");
-                if( result == JFileChooser.APPROVE_OPTION)
+                if( result == JFileChooser.APPROVE_OPTION) {
                     loadFile = fileChooser.getSelectedFile();
+                    new LoadThread().run();
+                }
         }
     }
     private class SaveListener implements ActionListener{
@@ -50,6 +57,7 @@ public class MenuTabs extends JPanel{
             int result = fileChooser.showDialog(null, "Save");
             if( result == JFileChooser.APPROVE_OPTION)
                 saveFile = fileChooser.getSelectedFile();
+            new WriteThread().run();
         }
     }
     private JComboBox createViewBox(){
