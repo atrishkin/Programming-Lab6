@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CollectionScene extends JPanel {
-    private static JPanel Scene2 = new JPanel(new GridBagLayout());
     private static Storage storage = new Storage();
     private static JTable collectionTable = new JTable();
     private static DefaultTableModel model = new DefaultTableModel();
@@ -43,7 +42,7 @@ public class CollectionScene extends JPanel {
         collectionButtons.add(generateButton());
         collectionButtons.add(new SortButton().sortButton());
         collectionButtons.add(new ClearButton().clearButton());
-        collectionButtons.add(new SaveButton().saveButton());
+        //
         return collectionButtons;
     }
     private static JButton generateButton(){
@@ -65,8 +64,5 @@ public class CollectionScene extends JPanel {
     }
     static Storage getStorage() {
         return storage;
-    }
-    static void setStorage(Storage storage) {
-        CollectionScene.storage = storage;
     }
 }
