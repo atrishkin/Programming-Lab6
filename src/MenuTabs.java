@@ -1,7 +1,4 @@
 import javax.swing.*;
-import javax.swing.event.MenuDragMouseEvent;
-import javax.swing.event.MenuDragMouseListener;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -38,24 +35,21 @@ public class MenuTabs extends JPanel{
         public void actionPerformed(ActionEvent actionEvent) {
             JFileChooser fileChooser = new JFileChooser();
             fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
-            fileChooser.setSize(560, 300);
-            fileChooser.setVisible(true);
+            fileChooser.setDialogTitle("Выберете загрузочный json файл");
             int result = fileChooser.showDialog(null, "Load");
-            switch (result) {
-                case JFileChooser.APPROVE_OPTION:
+                if( result == JFileChooser.APPROVE_OPTION)
                     loadFile = fileChooser.getSelectedFile();
-                    break;
-                case JFileChooser.CANCEL_OPTION: break;
-                case JFileChooser.ERROR_OPTION: break;
-            }
         }
     }
     private class SaveListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            try {
-            } catch (IllegalArgumentException e) {
-            }
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+            fileChooser.setDialogTitle("Выберете файл сохранения");
+            int result = fileChooser.showDialog(null, "Save");
+            if( result == JFileChooser.APPROVE_OPTION)
+                saveFile = fileChooser.getSelectedFile();
         }
     }
     private JComboBox createViewBox(){
