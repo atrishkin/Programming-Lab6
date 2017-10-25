@@ -12,7 +12,6 @@ public class CollectionScene extends JPanel {
     private static DefaultTableModel model = new DefaultTableModel();
 
     CollectionScene(){
-        //TODO: запись из файла, может в сцене 1
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
         c.fill = GridBagConstraints.HORIZONTAL;

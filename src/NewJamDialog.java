@@ -4,14 +4,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NewJamDialog extends JDialog{
-    private static Dimension insertDimention = new Dimension(900, 180);
+    private static Dimension insertDimention = new Dimension(1000, 180);
     private JTextArea speech = new JTextArea("Введите параметры банки с вареньем. Пожалуйста, следуйте инструкциям и вводите реальные \nданные, в указанном формате. Будьте внимательнее! Спасибо");
     private JTextArea indexText = new JTextArea("Индекс (от 1 до "+(CollectionScene.getStorage().getJam().size()+1)+"):");
     private JTextArea nameText = new JTextArea("Название варенья:");
     private JTextArea sizeText = new JTextArea("Литраж:");
     private JTextArea yearText = new JTextArea("Год приготовления:");
     private JTextArea priorityText = new JTextArea("Приоритет (целое число):");
-    //TODO: ограничить количество вводимых символов
     private JTextField index = new JTextField();
     private JTextField name = new JTextField();
     private JTextField size = new JTextField();
