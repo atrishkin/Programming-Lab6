@@ -22,8 +22,9 @@ class SaveThread implements Runnable{
                 } else { fileWriter.write("]"); }
             }
             fileWriter.close();
+            new WarningFrame("Сохранение в файл "+file+" успешно");
         } catch (IOException e) {
-            new WarningFrame("Не найден файл для сохранения");
+            new WarningFrame("Не найден файл для сохранения, выберете файл через настройки");
         }
     }
 }
