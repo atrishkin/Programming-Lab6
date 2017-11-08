@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class NewJamDialog extends JDialog{
-    private static Dimension insertDimention = new Dimension(1000, 180);
+    private static Dimension insertDimention = new Dimension(950, 180);
     private JTextArea speech = new JTextArea("Введите параметры банки с вареньем. Пожалуйста, следуйте инструкциям и вводите реальные \nданные, в указанном формате. Будьте внимательнее! Спасибо");
     private JTextArea indexText = new JTextArea("Индекс (от 1 до "+(CollectionScene.getStorage().getJam().size()+1)+"):");
     private JTextArea nameText = new JTextArea("Название варенья:");

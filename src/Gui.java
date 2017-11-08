@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Gui extends JFrame{
-    private Dimension frameDimention = new Dimension(1000, 600);
+    private Dimension frameDimention = new Dimension(950, 500);
     Gui() {
         setResizable(false);
         setSize(frameDimention);

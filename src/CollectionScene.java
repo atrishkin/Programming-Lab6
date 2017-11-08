@@ -1,7 +1,5 @@
-import sun.swing.table.DefaultTableCellHeaderRenderer;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.JTableHeader;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -30,8 +28,6 @@ public class CollectionScene extends JPanel {
     private static JTable getCollectionTable(){
         model = storage.getModel();
         collectionTable = new JTable(model);
-        JTableHeader header = collectionTable.getTableHeader();
-        header.setDefaultRenderer(new DefaultTableCellHeaderRenderer());
         collectionTable.setEnabled(false);
         return collectionTable;
     }
@@ -39,7 +35,9 @@ public class CollectionScene extends JPanel {
         JPanel collectionButtons = new JPanel();
         collectionButtons.add(new InsertButton().insertButton());
         collectionButtons.add(generateButton());
+        collectionButtons.add(new DeleteButton().deleteButton());
         collectionButtons.add(new SortButton().sortButton());
+        collectionButtons.add(new FilterButton().filterButton());
         collectionButtons.add(new ClearButton().clearButton());
         //
         return collectionButtons;
@@ -52,7 +50,8 @@ public class CollectionScene extends JPanel {
                     storage.addJam(new Jam("Малина",2.5,2014,2));
                     storage.addJam(new Jam("Морошка",1,2016,1));
                     storage.addJam(new Jam("Черника",3,2014,2));
-                    storage.addJam(new Jam("Морожка",1,2015,1));
+                    storage.addJam(new Jam("Морошка",1,2015,1));
+                    storage.addJam(new Jam("Мед",1,2013,3));
                 }
                 CollectionScene.updateTable();
             }

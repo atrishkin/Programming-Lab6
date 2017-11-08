@@ -4,8 +4,10 @@ import java.util.Collections;
 
 public class Storage {
     private ArrayList<Jam> jamStorage = new ArrayList<>();
+    private ArrayList<Jam> saveStorage;
     private static String[] colNames = {"Номер","Название","Литраж","Год","Приоритет"};
     private static int compareCount = 1;
+    private static int filterCount = 1;
     Storage(){
         jamStorage = new ArrayList<>();
     }
@@ -40,5 +42,29 @@ public class Storage {
         }
         DefaultTableModel model = new DefaultTableModel(content, colNames);
         return model;
+    }
+    void filter(int i){
+        if(filterCount > 0) {
+            saveStorage = jamStorage;
+            CollectionScene.getStorage().clearStorage();
+            for (int j = 0; j < saveStorage.size(); j++) {
+                if (saveStorage.get(j).getPriority() == i) {
+                    this.addJam(saveStorage.get(j));
+                }
+            }
+            filterCount -= 2;
+        }else{
+            jamStorage = saveStorage;
+            filterCount +=2;
+        }
+    }
+    void delete(int i){
+        try {
+            jamStorage.remove(i);
+        } catch (ArrayIndexOutOfBoundsException e){
+            new WarningFrame("Аккуратнее с индексами, молодой человек!");
+        } catch (IndexOutOfBoundsException e){
+            new WarningFrame("Аккуратнее с индексами, молодой человек!");
+        }
     }
 }

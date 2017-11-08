@@ -11,6 +11,7 @@ public class SortButton{
     class Listener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent event){
+            System.out.println(event);
             CollectionScene.getStorage().sortStorage();
             CollectionScene.updateTable();
         }
